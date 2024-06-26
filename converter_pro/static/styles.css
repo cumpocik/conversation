@@ -1,0 +1,35 @@
+form {
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #0074D9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 20px;
+    margin-top: 20px;
+}

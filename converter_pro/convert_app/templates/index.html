@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <form method="post" action="{% url 'convert_currency' %}">
+        {% csrf_token %}
+        <h1>Конвертер валют</h1>
+        <label for="amount">Введите сумму:</label>
+        {% if error_message %}
+            <p style="color: red;margin-top: 5px;margin-bottom: 5px;">{{ error_message }}</p>
+        {% endif %}
+        <input type="number" id="amount" name="amount" step="0.01" placeholder="Сумма">
+        <br>
+        <label for="from">Из валюты:</label>
+        <select id="from" name="from">
+            <option value="USD" selected>🇺🇸 Доллар США</option>
+            <option value="EUR">🇪🇺 Евро</option>
+            <option value="RUB">🇷🇺 Российский рубль</option>
+            <option value="BYN">🇧🇾 Белорусский рубль</option>
+            <option value="UAH">🇺🇦 Гривна</option>
+            <option value="PLN">🇵🇱 Злотый</option>
+            <option value="GBP">🇬🇧 Фунт стерлингов</option>
+        </select>
+        <br>
+        <label for="to">В валюту:</label>
+        <select id="to" name="to">
+            <option value="USD">🇺🇸 Доллар США</option>
+            <option value="EUR">🇪🇺 Евро</option>
+            <option value="RUB">🇷🇺 Российский рубль</option>
+            <option value="BYN" selected>🇧🇾 Белорусский рубль</option>
+            <option value="UAH">🇺🇦 Гривна</option>
+            <option value="PLN">🇵🇱 Злотый</option>
+            <option value="GBP">🇬🇧 Фунт стерлингов</option>
+        </select>
+        <br>
+        <button type="submit">Конвертировать</button>
+    </form>
+    <p>Конвертированная сумма: {{ amount }} {{ from }} <b>{{ converted_amount }} {{ to }}</b></p>
+</body>
+</html>
+</body>
+</html>
